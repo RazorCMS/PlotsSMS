@@ -6,8 +6,8 @@ from smsPlotABS import *
 # class producing the 2D plot with xsec colors
 class smsPlotXSEC(smsPlotABS):
 
-    def __init__(self, modelname, histo, obsLimits, expLimits, energy, lumi, preliminary, label):
-        self.standardDef(modelname, histo, obsLimits, expLimits, energy, lumi, preliminary)
+    def __init__(self, modelname, histo, obsLimits, expLimits, expLimits2, energy, lumi, preliminary, boxes, label):
+        self.standardDef(modelname, histo, obsLimits, expLimits, expLimits2, energy, lumi, preliminary, boxes)
         self.LABEL = label
         # canvas for the plot
         self.c = rt.TCanvas("cCONT_%s" %label,"cCONT_%s" %label,600,600)
@@ -23,7 +23,9 @@ class smsPlotXSEC(smsPlotABS):
         self.histo.GetZaxis().SetTitleFont(42)
         self.histo.GetZaxis().SetLabelSize(0.035)
         self.histo.GetZaxis().SetTitleSize(0.035)
-
+        self.histo.SetMinimum(self.model.Zmin)
+        self.histo.SetMaximum(self.model.Zmax)
+        
         # define the palette for z axis
         NRGBs = 5
         NCont = 255
