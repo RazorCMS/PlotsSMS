@@ -8,6 +8,7 @@ class sms():
         if modelname.find("T1ttbb") != -1: self.T1ttbb()
         if modelname.find("T1tttb") != -1: self.T1tttb()
         if modelname.find("T1bbbb") != -1: self.T1bbbb()
+        if modelname.find("T1qqqq") != -1: self.T1qqqq()
         if modelname.find("T2bb") != -1: self.T2bb()
         if modelname.find("T6bbHH") != -1: self.T6bbHH()
         if modelname.find("T2tt") != -1: self.T2tt()
@@ -54,6 +55,32 @@ class sms():
         self.Ymax = 1550
         self.Zmax = 1
         self.Zmin = 3.e-3
+        # produce sparticle
+        self.sParticle = "m_{#tilde{g}} (GeV)"
+        # LSP
+        self.LSP = "m_{#tilde{#chi}^{0}} (GeV)"
+        # diagonal position: mLSP = mgluino - 2mtop
+        self.diagX = array('d',[0,20000,self.Xmin])
+        self.diagY = array('d',[-25, 20000-25,self.Xmax])
+        self.divX = 408
+        self.divY = 408
+        self.optX = True
+        self.optY = True
+        
+        
+    def T1qqqq(self):
+        # model name
+        self.modelname = "T1qqqq"
+        # decay chain
+        self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow q#bar{q}#tilde{#chi}^{0}_{1}"
+        self.masslabel = ""
+        # plot boundary. The top 1/4 of the y axis is taken by the legend
+        self.Xmin = 600
+        self.Xmax = 2000
+        self.Ymin = 0
+        self.Ymax = 1250
+        self.Zmax = 1
+        self.Zmin = 5.e-3
         # produce sparticle
         self.sParticle = "m_{#tilde{g}} (GeV)"
         # LSP
