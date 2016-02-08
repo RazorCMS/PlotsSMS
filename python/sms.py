@@ -23,21 +23,21 @@ class sms():
         self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow t#bar{t}#tilde{#chi}^{0}_{1}"
         self.masslabel = ""
         # scan range to plot
-        self.Xmin = 400
-        self.Xmax = 1500
+        self.Xmin = 700
+        self.Xmax = 1950
         self.Ymin = 0
-        self.Ymax = 1200
-        self.Zmax = 1
-        self.Zmin = 5.e-4
+        self.Ymax = 1800
+        self.Zmax = 2
+        self.Zmin = 1.e-3
         # produce sparticle
-        self.sParticle = "m_{#tilde{g}} (GeV)"
+        self.sParticle = "m_{#tilde{g}} [GeV]"
         # LSP
-        self.LSP = "m_{#tilde{#chi}^{0}} (GeV)"
+        self.LSP = "m_{#tilde{#chi}^{0}} [GeV]"
         # diagonal position: mLSP = mgluino - 2mtop 
-        mW = 250
+        mW = 225
         self.diagX = array('d',[0,20000,self.Xmin])
         self.diagY = array('d',[-mW, 20000-mW,self.Xmax])  
-        self.divX = 406
+        self.divX = 408
         self.divY = 408
         self.optX = True
         self.optY = True
@@ -50,15 +50,15 @@ class sms():
         self.masslabel = ""
         # plot boundary. The top 1/4 of the y axis is taken by the legend
         self.Xmin = 600
-        self.Xmax = 2000
+        self.Xmax = 1950
         self.Ymin = 0
-        self.Ymax = 1550
-        self.Zmax = 1
-        self.Zmin = 3.e-3
+        self.Ymax = 1800
+        self.Zmax = 2
+        self.Zmin = 1.e-3
         # produce sparticle
-        self.sParticle = "m_{#tilde{g}} (GeV)"
+        self.sParticle = "m_{#tilde{g}} [GeV]"
         # LSP
-        self.LSP = "m_{#tilde{#chi}^{0}} (GeV)"
+        self.LSP = "m_{#tilde{#chi}^{0}} [GeV]"
         # diagonal position: mLSP = mgluino - 2mtop
         self.diagX = array('d',[0,20000,self.Xmin])
         self.diagY = array('d',[-25, 20000-25,self.Xmax])
@@ -76,15 +76,15 @@ class sms():
         self.masslabel = ""
         # plot boundary. The top 1/4 of the y axis is taken by the legend
         self.Xmin = 600
-        self.Xmax = 2000
+        self.Xmax = 1950
         self.Ymin = 0
-        self.Ymax = 1250
-        self.Zmax = 1
-        self.Zmin = 5.e-3
+        self.Ymax = 1600
+        self.Zmax = 2
+        self.Zmin = 1.e-3
         # produce sparticle
-        self.sParticle = "m_{#tilde{g}} (GeV)"
+        self.sParticle = "m_{#tilde{g}} [GeV]"
         # LSP
-        self.LSP = "m_{#tilde{#chi}^{0}} (GeV)"
+        self.LSP = "m_{#tilde{#chi}^{0}} [GeV]"
         # diagonal position: mLSP = mgluino - 2mtop
         self.diagX = array('d',[0,20000,self.Xmin])
         self.diagY = array('d',[-25, 20000-25,self.Xmax])
@@ -108,9 +108,9 @@ class sms():
         self.Zmax = 10
         self.Zmin = 1.e-3
         # produce sparticle
-        self.sParticle = "m_{#tilde{b}} (GeV)"
+        self.sParticle = "m_{#tilde{b}} [GeV]"
         # LSP
-        self.LSP = "m_{#tilde{#chi}^{0}} (GeV)"
+        self.LSP = "m_{#tilde{#chi}^{0}} [GeV]"
         # diagonal position: mLSP = mgluino - 2mtop
         self.diagX = array('d',[0,20000,self.Xmin])
         self.diagY = array('d',[-25,20000-25,self.Xmax])
@@ -135,9 +135,9 @@ class sms():
         self.Zmax = 10
         self.Zmin = 1.e-3
         # produce sparticle
-        self.sParticle = "m_{#tilde{t}} (GeV)"
+        self.sParticle = "m_{#tilde{t}} [GeV]"
         # LSP
-        self.LSP = "m_{#tilde{#chi}^{0}} (GeV)"
+        self.LSP = "m_{#tilde{#chi}^{0}} [GeV]"
         # diagonal position: mLSP = mgluino - 2mtop
         self.diagX = array('d',[0,20000,self.Xmin])
         self.diagY = array('d',[-100, 20000-100,self.Xmax])
@@ -162,9 +162,9 @@ class sms():
         self.Zmax = 10
         self.Zmin = 1.e-3
         # produce sparticle
-        self.sParticle = "m_{#tilde{t}} (GeV)"
+        self.sParticle = "m_{#tilde{t}} [GeV]"
         # LSP
-        self.LSP = "m_{#tilde{#chi}^{0}} (GeV)"
+        self.LSP = "m_{#tilde{#chi}^{0}} [GeV]"
         # diagonal position: mLSP = mgluino - 2mtop
         self.diagX = array('d',[0,20000,self.Xmin])
         self.diagY = array('d',[-100, 20000-100,self.Xmax])
@@ -189,9 +189,9 @@ class sms():
         self.Zmax = 10
         self.Zmin = 1.e-3
         # produce sparticle
-        self.sParticle = "m_{#tilde{t}} (GeV)"
+        self.sParticle = "m_{#tilde{t}} [GeV]"
         # LSP
-        self.LSP = "m_{#tilde{#chi}^{0}} (GeV)"
+        self.LSP = "m_{#tilde{#chi}^{0}} [GeV]"
         # diagonal position: mLSP = mgluino - 2mtop
         self.diagX = array('d',[0,20000,self.Xmin])
         self.diagY = array('d',[-100, 20000-100,self.Xmax])
@@ -215,9 +215,9 @@ class sms():
         self.Zmax = 1
         self.Zmin = 5.e-4
         # produce sparticle
-        self.sParticle = "m_{#tilde{g}} (GeV)"
+        self.sParticle = "m_{#tilde{g}} [GeV]"
         # LSP
-        self.LSP = "m_{#tilde{#chi}^{0}} (GeV)"
+        self.LSP = "m_{#tilde{#chi}^{0}} [GeV]"
         # diagonal position: mLSP = mgluino - 2mtop
         self.diagX = array('d',[0,20000,self.Xmin])
         self.diagY = array('d',[-100, 20000-100,self.Xmax])
@@ -240,9 +240,9 @@ class sms():
         self.Zmax = 1
         self.Zmin = 5.e-4
         # produce sparticle
-        self.sParticle = "m_{#tilde{g}} (GeV)"
+        self.sParticle = "m_{#tilde{g}} [GeV]"
         # LSP
-        self.LSP = "m_{#tilde{#chi}^{0}} (GeV)"
+        self.LSP = "m_{#tilde{#chi}^{0}} [GeV]"
         # diagonal position: mLSP = mgluino - 2mtop
         self.diagX = array('d',[0,20000,self.Xmin])
         self.diagY = array('d',[-100, 20000-100,self.Xmax])
@@ -266,9 +266,9 @@ class sms():
         self.Zmax = 1
         self.Zmin = 5.e-4
         # produce sparticle
-        self.sParticle = "m_{#tilde{g}} (GeV)"
+        self.sParticle = "m_{#tilde{g}} [GeV]"
         # LSP
-        self.LSP = "m_{#tilde{#chi}^{0}} (GeV)"
+        self.LSP = "m_{#tilde{#chi}^{0}} [GeV]"
         # diagonal position: mLSP = mgluino - 2mtop
         self.diagX = array('d',[0,20000,self.Xmin])
         self.diagY = array('d',[-200, 20000-200,self.Xmax])
@@ -290,9 +290,9 @@ class sms():
         self.Ymin = 0
         self.Ymax = 45 
         # produce sparticle
-        self.sParticle = "m_{sbottom} (GeV)"
+        self.sParticle = "m_{sbottom} [GeV]"
         # LSP
-        self.LSP = "m_{LSP} (GeV)"
+        self.LSP = "m_{LSP} [GeV]"
         # diagonal position: mLSP = mgluino - 2mhiggs
         self.diagX = array('d',[0,20000, self.Xmin])
         self.diagY = array('d',[-300, 20000-300, self.Xmax])

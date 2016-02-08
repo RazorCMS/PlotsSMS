@@ -82,15 +82,15 @@ class smsPlotABS(object):
         graphWhite.SetLineWidth(3)
         graphWhite.SetPoint(0,self.model.Xmin, self.model.Ymax)
         graphWhite.SetPoint(1,self.model.Xmax, self.model.Ymax)
-        graphWhite.SetPoint(2,self.model.Xmax, self.model.Ymax*0.75)
-        graphWhite.SetPoint(3,self.model.Xmin, self.model.Ymax*0.75)
+        graphWhite.SetPoint(2,self.model.Xmax, self.model.Ymax*0.7)
+        graphWhite.SetPoint(3,self.model.Xmin, self.model.Ymax*0.7)
         graphWhite.SetPoint(4,self.model.Xmin, self.model.Ymax)
         graphWhite.Draw("FSAME")
         graphWhite.Draw("LSAME")
         self.c.graphWhite = graphWhite
         
         # CMS LABEL
-        textCMS = rt.TLatex(0.15,0.98,"CMS %s                 %s pb^{-1} (%s TeV)" %(self.preliminary, self.lumi, self.energy))
+        textCMS = rt.TLatex(0.15,0.98,"CMS %s                 %.1f fb^{-1} (%s TeV)" %(self.preliminary, float(self.lumi)/1000., self.energy))
         textCMS.SetNDC()
         textCMS.SetTextAlign(13)
         textCMS.SetTextFont(42)
@@ -124,13 +124,13 @@ class smsPlotABS(object):
         textMassLabel.Draw()
         self.c.textNLONLL = textMassLabel
         # BOXES LABEL
-        textBoxesLabel= rt.TLatex(0.18,0.70,"%s" %self.boxes.replace("_"," "))
+        textBoxesLabel= rt.TLatex(0.18,0.73,"%s" %self.boxes.replace("_"," "))
         textBoxesLabel.SetNDC()
         textBoxesLabel.SetTextAlign(13)
-        textBoxesLabel.SetTextFont(42)
+        textBoxesLabel.SetTextFont(52)
         textBoxesLabel.SetTextSize(0.038)
         textBoxesLabel.Draw()
-        #self.c.textBoxesLabel = textBoxesLabel
+        self.c.textBoxesLabel = textBoxesLabel
 
     def Save(self,label):
         # save the output
@@ -222,8 +222,8 @@ class smsPlotABS(object):
         LExpM2.SetPoint(0,self.model.Xmin+3*xRange/100, self.model.Ymax-2.25*yRange/100*10)
         LExpM2.SetPoint(1,self.model.Xmin+10*xRange/100, self.model.Ymax-2.25*yRange/100*10)
         
-        textExp = rt.TLatex(self.model.Xmin+11*xRange/100, self.model.Ymax-2.15*yRange/100*10, "Expected #pm 1, #pm 2 #sigma_{experiment}")
-        #textExp = rt.TLatex(self.model.Xmin+11*xRange/100, self.model.Ymax-2.15*yRange/100*10, "Expected #pm 1 #sigma_{experiment}")
+        #textExp = rt.TLatex(self.model.Xmin+11*xRange/100, self.model.Ymax-2.15*yRange/100*10, "Expected #pm 1, #pm 2 #sigma_{experiment}")
+        textExp = rt.TLatex(self.model.Xmin+11*xRange/100, self.model.Ymax-2.15*yRange/100*10, "Expected #pm 1 #sigma_{experiment}")
         textExp.SetTextFont(42)
         textExp.SetTextSize(0.040)
         textExp.Draw()
@@ -233,8 +233,8 @@ class smsPlotABS(object):
         LObsM.Draw("LSAME")
         LObsP.Draw("LSAME")
         LExp.Draw("LSAME")
-        LExpM2.Draw("LSAME")
-        LExpP2.Draw("LSAME")
+        #LExpM2.Draw("LSAME")
+        #LExpP2.Draw("LSAME")
         LExpM.Draw("LSAME")
         LExpP.Draw("LSAME")
         
@@ -292,8 +292,8 @@ class smsPlotABS(object):
         self.EXP['minus'].SetLineWidth(2)                      
         # DRAW LINES
         self.EXP['nominal'].Draw("LSAME")
-        self.EXP2['plus2'].Draw("LSAME")
-        self.EXP2['minus2'].Draw("LSAME")
+        #self.EXP2['plus2'].Draw("LSAME")
+        #self.EXP2['minus2'].Draw("LSAME")
         self.EXP['plus'].Draw("LSAME")
         self.EXP['minus'].Draw("LSAME")
         self.OBS['nominal'].Draw("LSAME")
