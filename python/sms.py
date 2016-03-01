@@ -8,6 +8,15 @@ class sms():
         if modelname.find("T1ttbb") != -1: self.T1ttbb()
         if modelname.find("T1tttb") != -1: self.T1tttb()
         if modelname.find("T1bbbb") != -1: self.T1bbbb()
+        if modelname.find("T1x0p25y0p25") != -1: self.T1x0p25y0p25()
+        if modelname.find("T1x0p50y0p00") != -1: self.T1x0p50y0p00()
+        if modelname.find("T1x0p00y0p50") != -1: self.T1x0p00y0p50()
+        if modelname.find("T1x0p00y0p00") != -1: self.T1x0p00y0p00()
+        if modelname.find("T1x1p00y0p00") != -1: self.T1x1p00y0p00()
+        if modelname.find("T1x0p50y0p25") != -1: self.T1x0p50y0p25()
+        if modelname.find("T1x0p25y0p50") != -1: self.T1x0p25y0p50()
+        if modelname.find("T1x0p50y0p50") != -1: self.T1x0p50y0p50()
+        if modelname.find("T1bri") != -1: self.T1bri()
         if modelname.find("T1qqqq") != -1: self.T1qqqq()
         if modelname.find("T2bb") != -1: self.T2bb()
         if modelname.find("T6bbHH") != -1: self.T6bbHH()
@@ -23,7 +32,7 @@ class sms():
         self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow t#bar{t}#tilde{#chi}^{0}_{1}"
         self.masslabel = ""
         # scan range to plot
-        self.Xmin = 700
+        self.Xmin = 600
         self.Xmax = 1950
         self.Ymin = 0
         self.Ymax = 1800
@@ -41,7 +50,242 @@ class sms():
         self.divY = 408
         self.optX = True
         self.optY = True
+
+    def T1x0p25y0p25(self):
+        # model name                                                                                                                           
+        self.modelname = "T1x0p25y0p25"
+        # decay chain                                                                      
+        self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1} / tt#tilde{#chi}^{0}_{1} / bb#tilde{#chi}^{0}_{1} (x=#frac{1}{4},y=#frac{1}{4})"
+        self.masslabel = "m_{#tilde{#chi}^{#pm}}-m_{#tilde{#chi}^{0}} = 5 GeV"
+        # scan range to plot                                                                                                                   
+        self.Xmin = 600
+        self.Xmax = 1950
+        self.Ymin = 0
+        self.Ymax = 1800
+        self.Zmax = 2
+        self.Zmin = 1.e-3
+        # produce sparticle                                                                                                                    
+        self.sParticle = "m_{#tilde{g}} [GeV]"
+        # LSP                                                                                                                                  
+        self.LSP = "m_{#tilde{#chi}^{0}} [GeV]"
+        # diagonal position: mLSP = mgluino - 2mtop                                                                                            
+        mW = 225
+        self.diagX = array('d',[0,20000,self.Xmin])
+        self.diagY = array('d',[-mW, 20000-mW,self.Xmax])
+        self.divX = 408
+        self.divY = 408
+        self.optX = True
+        self.optY = True
         
+    def T1x0p25y0p50(self):
+        # model name                                                                                                                           
+        self.modelname = "T1x0p25y0p50"
+        # decay chain                                                                      
+        self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1} / tt#tilde{#chi}^{0}_{1} / bb#tilde{#chi}^{0}_{1} (x=#frac{1}{4},y=#frac{1}{2})"
+        self.masslabel = "m_{#tilde{#chi}^{#pm}}-m_{#tilde{#chi}^{0}} = 5 GeV"
+        # scan range to plot                                                                                                                   
+        self.Xmin = 600
+        self.Xmax = 1950
+        self.Ymin = 0
+        self.Ymax = 1800
+        self.Zmax = 2
+        self.Zmin = 1.e-3
+        # produce sparticle                                                                                                                    
+        self.sParticle = "m_{#tilde{g}} [GeV]"
+        # LSP                                                                                                                                  
+        self.LSP = "m_{#tilde{#chi}^{0}} [GeV]"
+        # diagonal position: mLSP = mgluino - 2mtop                                                                                            
+        mW = 225
+        self.diagX = array('d',[0,20000,self.Xmin])
+        self.diagY = array('d',[-mW, 20000-mW,self.Xmax])
+        self.divX = 408
+        self.divY = 408
+        self.optX = True
+        self.optY = True
+        
+    def T1x0p50y0p25(self):
+        # model name                                                                                                                           
+        self.modelname = "T1x0p50y0p25"
+        # decay chain                                                                      
+        self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1} / tt#tilde{#chi}^{0}_{1} / bb#tilde{#chi}^{0}_{1} (x=#frac{1}{2},y=#frac{1}{4})"
+        self.masslabel = "m_{#tilde{#chi}^{#pm}}-m_{#tilde{#chi}^{0}} = 5 GeV"
+        # scan range to plot                                                                                                                   
+        self.Xmin = 600
+        self.Xmax = 1950
+        self.Ymin = 0
+        self.Ymax = 1800
+        self.Zmax = 2
+        self.Zmin = 1.e-3
+        # produce sparticle                                                                                                                    
+        self.sParticle = "m_{#tilde{g}} [GeV]"
+        # LSP                                                                                                                                  
+        self.LSP = "m_{#tilde{#chi}^{0}} [GeV]"
+        # diagonal position: mLSP = mgluino - 2mtop                                                                                            
+        mW = 225
+        self.diagX = array('d',[0,20000,self.Xmin])
+        self.diagY = array('d',[-mW, 20000-mW,self.Xmax])
+        self.divX = 408
+        self.divY = 408
+        self.optX = True
+        self.optY = True        
+        
+        
+    def T1x0p50y0p50(self):
+        # model name                                                                                                                           
+        self.modelname = "T1x0p50y0p50"
+        # decay chain                                                                      
+        self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tt#tilde{#chi}^{0}_{1} / bb#tilde{#chi}^{0}_{1} (x=#frac{1}{2},y=#frac{1}{2})"
+        self.masslabel = "m_{#tilde{#chi}^{#pm}}-m_{#tilde{#chi}^{0}} = 5 GeV"
+        # scan range to plot                                                                                                                   
+        self.Xmin = 600
+        self.Xmax = 1950
+        self.Ymin = 0
+        self.Ymax = 1800
+        self.Zmax = 2
+        self.Zmin = 1.e-3
+        # produce sparticle                                                                                                                    
+        self.sParticle = "m_{#tilde{g}} [GeV]"
+        # LSP                                                                                                                                  
+        self.LSP = "m_{#tilde{#chi}^{0}} [GeV]"
+        # diagonal position: mLSP = mgluino - 2mtop                                                                                            
+        mW = 225
+        self.diagX = array('d',[0,20000,self.Xmin])
+        self.diagY = array('d',[-mW, 20000-mW,self.Xmax])
+        self.divX = 408
+        self.divY = 408
+        self.optX = True
+        self.optY = True
+        
+    def T1x0p00y0p00(self):
+        # model name                                                                                                                           
+        self.modelname = "T1x0p00y0p00"
+        # decay chain                                                                      
+        self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1} (x=0,y=0)"
+        self.masslabel = "m_{#tilde{#chi}^{#pm}}-m_{#tilde{#chi}^{0}} = 5 GeV"
+        # scan range to plot                                                                                                                   
+        self.Xmin = 600
+        self.Xmax = 1950
+        self.Ymin = 0
+        self.Ymax = 1800
+        self.Zmax = 2
+        self.Zmin = 1.e-3
+        # produce sparticle                                                                                                                    
+        self.sParticle = "m_{#tilde{g}} [GeV]"
+        # LSP                                                                                                                                  
+        self.LSP = "m_{#tilde{#chi}^{0}} [GeV]"
+        # diagonal position: mLSP = mgluino - 2mtop                                                                                            
+        mW = 225
+        self.diagX = array('d',[0,20000,self.Xmin])
+        self.diagY = array('d',[-mW, 20000-mW,self.Xmax])
+        self.divX = 408
+        self.divY = 408
+        self.optX = True
+        self.optY = True
+        
+    def T1x0p50y0p00(self):
+        # model name                                                                                                                           
+        self.modelname = "T1x0p50y0p00"
+        # decay chain                                                                      
+        self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1} / bb#tilde{#chi}^{0}_{1} (x=#frac{1}{2},y=0)"
+        self.masslabel = "m_{#tilde{#chi}^{#pm}}-m_{#tilde{#chi}^{0}} = 5 GeV"
+        # scan range to plot                                                                                                                   
+        self.Xmin = 600
+        self.Xmax = 1950
+        self.Ymin = 0
+        self.Ymax = 1800
+        self.Zmax = 2
+        self.Zmin = 1.e-3
+        # produce sparticle                                                                                                                    
+        self.sParticle = "m_{#tilde{g}} [GeV]"
+        # LSP                                                                                                                                  
+        self.LSP = "m_{#tilde{#chi}^{0}} [GeV]"
+        # diagonal position: mLSP = mgluino - 2mtop                                                                                            
+        mW = 225
+        self.diagX = array('d',[0,20000,self.Xmin])
+        self.diagY = array('d',[-mW, 20000-mW,self.Xmax])
+        self.divX = 408
+        self.divY = 408
+        self.optX = True
+        self.optY = True
+        
+    def T1x0p00y0p50(self):
+        # model name                                                                                                                           
+        self.modelname = "T1x0p50y0p00"
+        # decay chain                                                                      
+        self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1} / tt#tilde{#chi}^{0}_{1} (x=0,y=#frac{1}{2})"
+        self.masslabel = "m_{#tilde{#chi}^{#pm}}-m_{#tilde{#chi}^{0}} = 5 GeV"
+        # scan range to plot                                                                                                                   
+        self.Xmin = 600
+        self.Xmax = 1950
+        self.Ymin = 0
+        self.Ymax = 1800
+        self.Zmax = 2
+        self.Zmin = 1.e-3
+        # produce sparticle                                                                                                                    
+        self.sParticle = "m_{#tilde{g}} [GeV]"
+        # LSP                                                                                                                                  
+        self.LSP = "m_{#tilde{#chi}^{0}} [GeV]"
+        # diagonal position: mLSP = mgluino - 2mtop                                                                                            
+        mW = 225
+        self.diagX = array('d',[0,20000,self.Xmin])
+        self.diagY = array('d',[-mW, 20000-mW,self.Xmax])
+        self.divX = 408
+        self.divY = 408
+        self.optX = True
+        self.optY = True
+        
+    def T1x1p00y0p00(self):
+        # model name                                                                                                                           
+        self.modelname = "T1x1p00y0p00"
+        # decay chain                                                                      
+        self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow bb#tilde{#chi}^{0}_{1} (x=1,y=0)"
+        self.masslabel = ""
+        # scan range to plot                                                                                                                   
+        self.Xmin = 600
+        self.Xmax = 1950
+        self.Ymin = 0
+        self.Ymax = 1800
+        self.Zmax = 2
+        self.Zmin = 1.e-3
+        # produce sparticle                                                                                                                    
+        self.sParticle = "m_{#tilde{g}} [GeV]"
+        # LSP                                                                                                                                  
+        self.LSP = "m_{#tilde{#chi}^{0}} [GeV]"
+        # diagonal position: mLSP = mgluino - 2mtop                                                                                            
+        mW = 225
+        self.diagX = array('d',[0,20000,self.Xmin])
+        self.diagY = array('d',[-mW, 20000-mW,self.Xmax])
+        self.divX = 408
+        self.divY = 408
+        self.optX = True
+        self.optY = True
+        
+    def T1bri(self):
+        # model name                                                                                                                           
+        self.modelname = "T1bri"
+        # decay chain                                                                      
+        self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1} / tt#tilde{#chi}^{0}_{1} / bb#tilde{#chi}^{0}_{1} (BR indep)"
+        self.masslabel = ""
+        # scan range to plot                                                                                                                   
+        self.Xmin = 600
+        self.Xmax = 1950
+        self.Ymin = 0
+        self.Ymax = 1800
+        self.Zmax = 2
+        self.Zmin = 1.e-3
+        # produce sparticle                                                                                                                    
+        self.sParticle = "m_{#tilde{g}} [GeV]"
+        # LSP                                                                                                                                  
+        self.LSP = "m_{#tilde{#chi}^{0}} [GeV]"
+        # diagonal position: mLSP = mgluino - 2mtop                                                                                            
+        mW = 225
+        self.diagX = array('d',[0,20000,self.Xmin])
+        self.diagY = array('d',[-mW, 20000-mW,self.Xmax])
+        self.divX = 408
+        self.divY = 408
+        self.optX = True
+        self.optY = True
+                
     def T1bbbb(self):
         # model name
         self.modelname = "T1bbbb"
