@@ -64,7 +64,7 @@ class smsPlotABS(object):
         self.emptyHisto.GetYaxis().SetNdivisions(self.model.divY,self.model.optY)
         self.emptyHisto.GetYaxis().SetTitleFont(42)
         self.emptyHisto.GetYaxis().SetTitleSize(0.05)
-        self.emptyHisto.GetYaxis().SetTitleOffset(1.35)
+        self.emptyHisto.GetYaxis().SetTitleOffset(1.25)
         self.emptyHisto.GetYaxis().SetTitle(self.model.LSP)
         #self.emptyHisto.GetYaxis().CenterTitle(True)
                 
@@ -90,13 +90,21 @@ class smsPlotABS(object):
         self.c.graphWhite = graphWhite
         
         # CMS LABEL
-        textCMS = rt.TLatex(0.15,0.98,"CMS %s                 %.1f fb^{-1} (%s TeV)" %(self.preliminary, float(self.lumi)/1000., self.energy))
+        #textCMS = rt.TLatex(0.15,0.98,"CMS %s                 %.1f fb^{-1} (%s TeV)" %(self.preliminary, float(self.lumi)/1000., self.energy))
+        textCMS = rt.TLatex(0.15,0.98,"CMS")
         textCMS.SetNDC()
         textCMS.SetTextAlign(13)
-        textCMS.SetTextFont(42)
-        textCMS.SetTextSize(0.038)
+        textCMS.SetTextFont(62)
+        textCMS.SetTextSize(0.05)
         textCMS.Draw()
+        textCMS1 = rt.TLatex(0.57,0.98,"%.1f fb^{-1} (%s TeV)" %(float(self.lumi)/1000., self.energy))
+        textCMS1.SetNDC()
+        textCMS1.SetTextAlign(13)
+        textCMS1.SetTextFont(42)
+        textCMS1.SetTextSize(0.038)
+        textCMS1.Draw()
         self.c.textCMS = textCMS
+        self.c.textCMS1 = textCMS1
         # MODEL LABEL
         textModelLabel= rt.TLatex(0.16,0.90,"%s" %self.model.label)
         #textModelLabel= rt.TLatex(0.16,0.90,"%s" %self.model.label)
@@ -257,6 +265,21 @@ class smsPlotABS(object):
         diagonal.Draw("FSAME")
         diagonal.Draw("LSAME")
         self.c.diagonal = diagonal
+        
+    def DrawDiagonalTop(self):            
+        filltop = rt.TGraph(4, self.model.fillXtop, self.model.fillYtop)
+        filltop.SetName("filltop")
+        filltop.SetFillColor(rt.kWhite)
+        filltop.Draw("FSAME")
+        
+        diagtop = rt.TGraph(3, self.model.diagXtop, self.model.diagYtop)
+        diagtop.SetName("diagtop")
+        diagtop.SetFillColor(rt.kWhite)
+        diagtop.SetLineColor(rt.kGray)
+        diagtop.SetLineStyle(2)
+        diagtop.Draw("LSAME")
+        self.c.filltop = filltop                
+        self.c.diagtop = diagtop                
         
     def DrawLines(self):
         # observed

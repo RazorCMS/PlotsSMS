@@ -65,6 +65,10 @@ class smsPlotXSEC(smsPlotABS):
         self.histo.Draw("COLZSAME")
         self.DrawDiagonal()
         self.DrawLines()
+        try:
+            if self.model.diagXtop and self.model.diagYtop and self.model.fillXtop and self.model.fillYtop: self.DrawDiagonalTop()
+        except:
+            pass
         self.DrawText()
         self.DrawLegend()
         self.DrawPaletteLabel()
