@@ -265,7 +265,7 @@ class sms():
         self.modelname = "T1bri"
         # decay chain                                                                      
         self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1} / tt#tilde{#chi}^{0}_{1} / bb#tilde{#chi}^{0}_{1} (BR indep.)"
-        self.masslabel = ""
+        self.masslabel = "m_{#tilde{#chi}^{#pm}_{1}}-m_{#tilde{#chi}^{0}_{1}} = 5 GeV"
         # scan range to plot                                                                                                                   
         self.Xmin = 600
         self.Xmax = 1950

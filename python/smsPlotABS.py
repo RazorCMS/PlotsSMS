@@ -45,7 +45,7 @@ class smsPlotABS(object):
 
         self.c.SetRightMargin(0.19)
         self.c.SetTopMargin(0.08)
-        self.c.SetLeftMargin(0.14)
+        self.c.SetLeftMargin(0.165)
         self.c.SetBottomMargin(0.14)
 
         # set x axis
@@ -64,7 +64,7 @@ class smsPlotABS(object):
         self.emptyHisto.GetYaxis().SetNdivisions(self.model.divY,self.model.optY)
         self.emptyHisto.GetYaxis().SetTitleFont(42)
         self.emptyHisto.GetYaxis().SetTitleSize(0.05)
-        self.emptyHisto.GetYaxis().SetTitleOffset(1.25)
+        self.emptyHisto.GetYaxis().SetTitleOffset(1.6)
         self.emptyHisto.GetYaxis().SetTitle(self.model.LSP)
         #self.emptyHisto.GetYaxis().CenterTitle(True)
                 
@@ -106,30 +106,30 @@ class smsPlotABS(object):
         self.c.textCMS = textCMS
         self.c.textCMS1 = textCMS1
         # MODEL LABEL
-        textModelLabel= rt.TLatex(0.16,0.90,"%s" %self.model.label)
+        textModelLabel= rt.TLatex(0.185,0.90,"%s" %self.model.label)
         #textModelLabel= rt.TLatex(0.16,0.90,"%s" %self.model.label)
         #textModelLabel= rt.TLatex(0.16,0.915,"%s" %self.model.label)
         textModelLabel.SetNDC()
         textModelLabel.SetTextAlign(13)
         textModelLabel.SetTextFont(42)
-        textModelLabel.SetTextSize(0.038)
+        textModelLabel.SetTextSize(0.036)
         textModelLabel.Draw()
         self.c.textModelLabel = textModelLabel
         
         #textModelLabel2 = rt.TLatex(0.56,0.88,"NLO+NLL exclusion")
-        textModelLabel2 = rt.TLatex(0.5,0.725,"NLO+NLL exclusion")
+        textModelLabel2 = rt.TLatex(0.52,0.725,"NLO+NLL exclusion")
         textModelLabel2.SetNDC()
         textModelLabel2.SetTextAlign(13)
         textModelLabel2.SetTextFont(42)
-        textModelLabel2.SetTextSize(0.038)
+        textModelLabel2.SetTextSize(0.036)
         textModelLabel2.Draw()
         self.c.textModelLabel2 = textModelLabel2
         # MASS LABEL
-        textMassLabel= rt.TLatex(0.55,0.82,"%s"%self.model.masslabel)
+        textMassLabel= rt.TLatex(0.57,0.82,"%s"%self.model.masslabel)
         textMassLabel.SetNDC()
         textMassLabel.SetTextAlign(13)
         textMassLabel.SetTextFont(42)
-        textMassLabel.SetTextSize(0.038)
+        textMassLabel.SetTextSize(0.036)
         textMassLabel.Draw()
         self.c.textNLONLL = textMassLabel
         # BOXES LABEL
@@ -137,7 +137,7 @@ class smsPlotABS(object):
         textBoxesLabel.SetNDC()
         textBoxesLabel.SetTextAlign(13)
         textBoxesLabel.SetTextFont(52)
-        textBoxesLabel.SetTextSize(0.038)
+        textBoxesLabel.SetTextSize(0.036)
         #textBoxesLabel.Draw()
         self.c.textBoxesLabel = textBoxesLabel
 
