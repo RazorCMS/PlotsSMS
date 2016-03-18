@@ -112,16 +112,16 @@ class smsPlotABS(object):
         textModelLabel.SetNDC()
         textModelLabel.SetTextAlign(13)
         textModelLabel.SetTextFont(42)
-        textModelLabel.SetTextSize(0.04)
+        textModelLabel.SetTextSize(0.038)
         textModelLabel.Draw()
         self.c.textModelLabel = textModelLabel
         
         #textModelLabel2 = rt.TLatex(0.56,0.88,"NLO+NLL exclusion")
-        textModelLabel2 = rt.TLatex(0.56,0.725,"NLO+NLL exclusion")
+        textModelLabel2 = rt.TLatex(0.5,0.725,"NLO+NLL exclusion")
         textModelLabel2.SetNDC()
         textModelLabel2.SetTextAlign(13)
         textModelLabel2.SetTextFont(42)
-        textModelLabel2.SetTextSize(0.03)
+        textModelLabel2.SetTextSize(0.038)
         textModelLabel2.Draw()
         self.c.textModelLabel2 = textModelLabel2
         # MASS LABEL
@@ -138,7 +138,7 @@ class smsPlotABS(object):
         textBoxesLabel.SetTextAlign(13)
         textBoxesLabel.SetTextFont(52)
         textBoxesLabel.SetTextSize(0.038)
-        textBoxesLabel.Draw()
+        #textBoxesLabel.Draw()
         self.c.textBoxesLabel = textBoxesLabel
 
     def Save(self,label):

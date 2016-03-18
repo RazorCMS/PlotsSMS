@@ -56,7 +56,7 @@ class sms():
         self.modelname = "T1x0p25y0p25"
         # decay chain                                                                      
         self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1} / tt#tilde{#chi}^{0}_{1} / bb#tilde{#chi}^{0}_{1} (x=#frac{1}{4},y=#frac{1}{4})"
-        self.masslabel = "m_{#tilde{#chi}^{#pm}}-m_{#tilde{#chi}^{0}} = 5 GeV"
+        self.masslabel = "m_{#tilde{#chi}^{#pm}_{1}}-m_{#tilde{#chi}^{0}_{1}} = 5 GeV"
         # scan range to plot                                                                                                                   
         self.Xmin = 600
         self.Xmax = 1950
@@ -82,7 +82,7 @@ class sms():
         self.modelname = "T1x0p25y0p50"
         # decay chain                                                                      
         self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1} / tt#tilde{#chi}^{0}_{1} / bb#tilde{#chi}^{0}_{1} (x=#frac{1}{4},y=#frac{1}{2})"
-        self.masslabel = "m_{#tilde{#chi}^{#pm}}-m_{#tilde{#chi}^{0}} = 5 GeV"
+        self.masslabel = "m_{#tilde{#chi}^{#pm}_{1}}-m_{#tilde{#chi}^{0}_{1}} = 5 GeV"
         # scan range to plot                                                                                                                   
         self.Xmin = 600
         self.Xmax = 1950
@@ -108,7 +108,7 @@ class sms():
         self.modelname = "T1x0p50y0p25"
         # decay chain                                                                      
         self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1} / tt#tilde{#chi}^{0}_{1} / bb#tilde{#chi}^{0}_{1} (x=#frac{1}{2},y=#frac{1}{4})"
-        self.masslabel = "m_{#tilde{#chi}^{#pm}}-m_{#tilde{#chi}^{0}} = 5 GeV"
+        self.masslabel = "m_{#tilde{#chi}^{#pm}_{1}}-m_{#tilde{#chi}^{0}_{1}} = 5 GeV"
         # scan range to plot                                                                                                                   
         self.Xmin = 600
         self.Xmax = 1950
@@ -135,7 +135,7 @@ class sms():
         self.modelname = "T1x0p50y0p50"
         # decay chain                                                                      
         self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tt#tilde{#chi}^{0}_{1} / bb#tilde{#chi}^{0}_{1} (x=#frac{1}{2},y=#frac{1}{2})"
-        self.masslabel = "m_{#tilde{#chi}^{#pm}}-m_{#tilde{#chi}^{0}} = 5 GeV"
+        self.masslabel = "m_{#tilde{#chi}^{#pm}_{1}}-m_{#tilde{#chi}^{0}_{1}} = 5 GeV"
         # scan range to plot                                                                                                                   
         self.Xmin = 600
         self.Xmax = 1950
@@ -161,7 +161,7 @@ class sms():
         self.modelname = "T1x0p00y0p00"
         # decay chain                                                                      
         self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1} (x=0,y=0)"
-        self.masslabel = "m_{#tilde{#chi}^{#pm}}-m_{#tilde{#chi}^{0}} = 5 GeV"
+        self.masslabel = "m_{#tilde{#chi}^{#pm}_{1}}-m_{#tilde{#chi}^{0}_{1}} = 5 GeV"
         # scan range to plot                                                                                                                   
         self.Xmin = 600
         self.Xmax = 1950
@@ -187,7 +187,7 @@ class sms():
         self.modelname = "T1x0p50y0p00"
         # decay chain                                                                      
         self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1} / bb#tilde{#chi}^{0}_{1} (x=#frac{1}{2},y=0)"
-        self.masslabel = "m_{#tilde{#chi}^{#pm}}-m_{#tilde{#chi}^{0}} = 5 GeV"
+        self.masslabel = "m_{#tilde{#chi}^{#pm}_{1}}-m_{#tilde{#chi}^{0}_{1}} = 5 GeV"
         # scan range to plot                                                                                                                   
         self.Xmin = 600
         self.Xmax = 1950
@@ -213,7 +213,7 @@ class sms():
         self.modelname = "T1x0p50y0p00"
         # decay chain                                                                      
         self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1} / tt#tilde{#chi}^{0}_{1} (x=0,y=#frac{1}{2})"
-        self.masslabel = "m_{#tilde{#chi}^{#pm}}-m_{#tilde{#chi}^{0}} = 5 GeV"
+        self.masslabel = "m_{#tilde{#chi}^{#pm}_{1}}-m_{#tilde{#chi}^{0}_{1}} = 5 GeV"
         # scan range to plot                                                                                                                   
         self.Xmin = 600
         self.Xmax = 1950
@@ -264,7 +264,7 @@ class sms():
         # model name                                                                                                                           
         self.modelname = "T1bri"
         # decay chain                                                                      
-        self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1} / tt#tilde{#chi}^{0}_{1} / bb#tilde{#chi}^{0}_{1} (BR indep)"
+        self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1} / tt#tilde{#chi}^{0}_{1} / bb#tilde{#chi}^{0}_{1} (BR indep.)"
         self.masslabel = ""
         # scan range to plot                                                                                                                   
         self.Xmin = 600
@@ -404,7 +404,7 @@ class sms():
         self.modelname = "T2tb"
         # decay chain
         self.label= "pp #rightarrow #tilde{t}#tilde{t}, #tilde{t} #rightarrow t#tilde{#chi}^{0}_{1} / b#tilde{#chi}^{#pm}_{1}"
-        self.masslabel = "m_{#tilde{#chi}^{#pm}}-m_{#tilde{#chi}^{0}} = 5 GeV"
+        self.masslabel = "m_{#tilde{#chi}^{#pm}_{1}}-m_{#tilde{#chi}^{0}_{1}} = 5 GeV"
         # plot boundary. The top 1/4 of the y axis is taken by the legend
         self.Xmin = 150
         self.Xmax = 900
@@ -431,7 +431,7 @@ class sms():
         self.modelname = "T2bw"
         # decay chain
         self.label= "pp #rightarrow #tilde{t}#tilde{t}, #tilde{t} #rightarrow b#tilde{#chi}^{#pm}_{1}"
-        self.masslabel = "m_{#tilde{#chi}^{#pm}}-m_{#tilde{#chi}^{0}} = 5 GeV"
+        self.masslabel = "m_{#tilde{#chi}^{#pm}_{1}}-m_{#tilde{#chi}^{0}_{1}} = 5 GeV"
         # plot boundary. The top 1/4 of the y axis is taken by the legend
         self.Xmin = 150
         self.Xmax = 900
@@ -457,7 +457,7 @@ class sms():
         self.modelname = "T1tbbb"
         # decay chain
         self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1} / bb#tilde{#chi}^{0}_{1}"
-        self.masslabel = "m_{#tilde{#chi}^{#pm}}-m_{#tilde{#chi}^{0}} = 5 GeV"
+        self.masslabel = "m_{#tilde{#chi}^{#pm}_{1}}-m_{#tilde{#chi}^{0}_{1}} = 5 GeV"
         # plot boundary. The top 1/4 of the y axis is taken by the legend
         self.Xmin = 400
         self.Xmax = 1500
@@ -482,7 +482,7 @@ class sms():
         self.modelname = "T1ttbb"
         # decay chain
         self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1}"
-        self.masslabel = "m_{#tilde{#chi}^{#pm}}-m_{#tilde{#chi}^{0}} = 5 GeV"
+        self.masslabel = "m_{#tilde{#chi}^{#pm}_{1}}-m_{#tilde{#chi}^{0}_{1}} = 5 GeV"
         # plot boundary. The top 1/4 of the y axis is taken by the legend
         self.Xmin = 400
         self.Xmax = 1500
@@ -508,7 +508,7 @@ class sms():
         self.modelname = "T1tttb"
         # decay chain
         self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1} / tt#tilde{#chi}^{0}_{1}"
-        self.masslabel = "m_{#tilde{#chi}^{#pm}}-m_{#tilde{#chi}^{0}} = 5 GeV"
+        self.masslabel = "m_{#tilde{#chi}^{#pm}_{1}}-m_{#tilde{#chi}^{0}_{1}} = 5 GeV"
         # plot boundary. The top 1/4 of the y axis is taken by the legend
         self.Xmin = 400
         self.Xmax = 1500
