@@ -4,6 +4,7 @@ class sms():
 
     def __init__(self, modelname):
         if modelname.find("T1tttt") != -1: self.T1tttt()
+        if modelname.find("T5ttttDM175") != -1: self.T5ttttDM175()
         if modelname.find("T1tbbb") != -1: self.T1tbbb()
         if modelname.find("T1ttbb") != -1: self.T1ttbb()
         if modelname.find("T1tttb") != -1: self.T1tttb()
@@ -19,12 +20,40 @@ class sms():
         if modelname.find("T1bri") != -1: self.T1bri()
         if modelname.find("T1qqqq") != -1: self.T1qqqq()
         if modelname.find("T2bb") != -1: self.T2bb()
-        if modelname.find("T6bbHH") != -1: self.T6bbHH()
-        if modelname.find("T2tt") != -1: self.T2tt()
-        if modelname.find("T2tb") != -1: self.T2tb()
-        if modelname.find("T2bw") != -1: self.T2bw()
+        if modelname.find("T6bbHH") != -1: self.T6bbHH()            
+        if modelname.find("T2ttGluino") != -1: self.T2ttGluino()
+        elif modelname.find("T2tt") != -1: self.T2tt()
+        elif modelname.find("T2tb") != -1: self.T2tb()
+        elif modelname.find("T2bw") != -1: self.T2bw()
+        elif modelname.find("T2bH") != -1: self.T2bH()
 
 
+    def T2bH(self):
+        # model name
+        self.modelname = "T2bH"
+        # decay chain
+        self.label= "pp #rightarrow #tilde{b}#tilde{b}, #tilde{b} #rightarrow b#tilde{#chi}^{0}_{2} #rightarrow  bH#tilde{#chi}^{0}_{1}"
+        self.masslabel = "m_{#tilde{#chi}^{0}_{2}}-m_{#tilde{#chi}^{0}_{1}}=130 GeV"
+        # plot boundary. The top 1/4 of the y axis is taken by the legend
+        self.Xmin = 250
+        self.Xmax = 500
+        self.Ymin = 0
+        self.Ymax = 400
+        self.Zmax = 10
+        self.Zmin = 1
+        # produce sparticle
+        self.sParticle = "m_{#tilde{b}} [GeV]"
+        # LSP
+        self.LSP = "m_{#tilde{#chi}^{0}_{1}} [GeV]"
+        # diagonal position: mLSP = mSbotton - 150
+        self.diagX = array('d',[0,20000,self.Xmin])
+        self.diagY = array('d',[-150, 20000-150,self.Xmax])
+        #self.divX = 407
+        self.divX = 409
+        self.divY = 408
+        self.optX = True
+        self.optY = True
+        
     def T1tttt(self):
         # model name
         self.modelname = "T1tttt"
@@ -51,6 +80,32 @@ class sms():
         self.optX = True
         self.optY = True
 
+    def T5ttttDM175(self):
+        # model name
+        self.modelname = "T5ttttDM175"
+        # decay chain
+        self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow t#tilde{t} #rightarrow t#bar{t}#tilde{#chi}^{0}_{1}"
+        self.masslabel = "m_{#tilde{t}}-m_{#tilde{#chi}^{0}_{1}}=175 GeV"
+        # scan range to plot
+        self.Xmin = 600
+        self.Xmax = 1700
+        self.Ymin = 0
+        self.Ymax = 1400
+        self.Zmax = 2
+        self.Zmin = 1.e-3
+        # produce sparticle
+        self.sParticle = "m_{#tilde{g}} [GeV]"
+        # LSP
+        self.LSP = "m_{#tilde{#chi}^{0}_{1}} [GeV]"
+        # diagonal position: mLSP = mgluino - 2mtop 
+        mW = 275
+        self.diagX = array('d',[0,20000,self.Xmin])
+        self.diagY = array('d',[-mW, 20000-mW,self.Xmax])  
+        self.divX = 408
+        self.divY = 408
+        self.optX = True
+        self.optY = True
+        
     def T1x0p25y0p25(self):
         # model name                                                                                                                           
         self.modelname = "T1x0p25y0p25"
@@ -391,6 +446,40 @@ class sms():
         
         self.fillXtop = array('d',[0,20000,20000,0])
         self.fillYtop = array('d',[-175-25, 20000-175-25,20000-175+25,-175+25])
+        
+        #self.divX = 407
+        self.divX = 409
+        self.divY = 408
+        self.optX = True
+        self.optY = True
+
+        
+    def T2ttGluino(self):
+        # model name
+        self.modelname = "T2ttGluino"
+        # decay chain
+        self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow t#tilde{t} #rightarrow t#tilde{#chi}^{0}_{1}+invisible"
+        self.masslabel = "m_{#tilde{t}} #approx m_{#tilde{#chi}^{0}_{1}}"
+        # plot boundary. The top 1/4 of the y axis is taken by the legend
+        self.Xmin = 100
+        self.Xmax = 900
+        self.Ymin = 0
+        self.Ymax = 700
+        self.Zmax = 200
+        self.Zmin = 1.e-3
+        # produce sparticle
+        self.sParticle = "m_{#tilde{g}} [GeV]"
+        # LSP
+        self.LSP = "m_{#tilde{#chi}^{0}_{1}} [GeV]"
+        # diagonal position: mLSP = mgluino - 2mtop
+        self.diagX = array('d',[0,20000,self.Xmin])
+        self.diagY = array('d',[-75, 20000-75,self.Xmax])
+        
+        self.diagXtop = array('d',[0,20000,self.Xmin])
+        self.diagYtop = array('d',[-175, 20000-175,self.Xmax])
+        
+        #self.fillXtop = array('d',[0,20000,20000,0])
+        #self.fillYtop = array('d',[-175-25, 20000-175-25,20000-175+25,-175+25])
         
         #self.divX = 407
         self.divX = 409
