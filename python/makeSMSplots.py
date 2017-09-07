@@ -5,6 +5,8 @@ from smsPlotCONT import *
 from smsPlotBrazil import *
 
 if __name__ == '__main__':
+    rt.gROOT.SetBatch()
+
     # read input arguments
     filename = sys.argv[1]
     modelname = sys.argv[1].split("/")[-1].split("_")[0]
@@ -21,11 +23,11 @@ if __name__ == '__main__':
     xsecPlot.Save("%sXSEC" %outputname)
 
     # only lines
-    contPlot = smsPlotCONT(modelname, fileIN.HISTOGRAM, fileIN.OBSERVED, fileIN.EXPECTED, fileIN.EXPECTED2, fileIN.ENERGY, fileIN.LUMI, fileIN.PRELIMINARY, fileIN.BOXES, "")
-    contPlot.Draw()
-    contPlot.Save("%sCONT" %outputname)
+    #contPlot = smsPlotCONT(modelname, fileIN.HISTOGRAM, fileIN.OBSERVED, fileIN.EXPECTED, fileIN.EXPECTED2, fileIN.ENERGY, fileIN.LUMI, fileIN.PRELIMINARY, fileIN.BOXES, "")
+    #contPlot.Draw()
+    #contPlot.Save("%sCONT" %outputname)
 
     # brazilian flag (show only 1 sigma)
-    brazilPlot = smsPlotBrazil(modelname, fileIN.HISTOGRAM, fileIN.OBSERVED, fileIN.EXPECTED, fileIN.EXPECTED2, fileIN.ENERGY, fileIN.LUMI, fileIN.PRELIMINARY, fileIN.BOXES, "")
-    brazilPlot.Draw()
-    brazilPlot.Save("%sBAND" %outputname)
+    #brazilPlot = smsPlotBrazil(modelname, fileIN.HISTOGRAM, fileIN.OBSERVED, fileIN.EXPECTED, fileIN.EXPECTED2, fileIN.ENERGY, fileIN.LUMI, fileIN.PRELIMINARY, fileIN.BOXES, "")
+    #brazilPlot.Draw()
+    #brazilPlot.Save("%sBAND" %outputname)

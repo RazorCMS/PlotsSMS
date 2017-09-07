@@ -90,8 +90,7 @@ class smsPlotABS(object):
         self.c.graphWhite = graphWhite
         
         # CMS LABEL
-        #textCMS = rt.TLatex(0.15,0.98,"CMS %s                 %.1f fb^{-1} (%s TeV)" %(self.preliminary, float(self.lumi)/1000., self.energy))
-        textCMS = rt.TLatex(0.15,0.98,"CMS")
+        textCMS = rt.TLatex(0.15,0.98,"CMS %s" %(self.preliminary))
         textCMS.SetNDC()
         textCMS.SetTextAlign(13)
         textCMS.SetTextFont(62)
@@ -153,7 +152,10 @@ class smsPlotABS(object):
         LObs = rt.TGraph(2)
         LObs.SetName("LObs")
         LObs.SetTitle("LObs")
-        LObs.SetLineColor(color(self.OBS['colorLine']))
+        try:
+            LObs.SetLineColor(color(self.OBS['colorLine']))
+        except TypeError:
+            LObs.SetLineColor(rt.kBlack)
         LObs.SetLineStyle(1)
         LObs.SetLineWidth(4)
         LObs.SetMarkerStyle(20)
@@ -163,7 +165,10 @@ class smsPlotABS(object):
         LObsP = rt.TGraph(2)
         LObsP.SetName("LObsP")
         LObsP.SetTitle("LObsP")
-        LObsP.SetLineColor(color(self.OBS['colorLine']))
+        try:
+            LObsP.SetLineColor(color(self.OBS['colorLine']))
+        except TypeError:
+            LObsP.SetLineColor(rt.kBlack)
         LObsP.SetLineStyle(1)
         LObsP.SetLineWidth(2)
         LObsP.SetMarkerStyle(20)
@@ -173,7 +178,10 @@ class smsPlotABS(object):
         LObsM = rt.TGraph(2)
         LObsM.SetName("LObsM")
         LObsM.SetTitle("LObsM")
-        LObsM.SetLineColor(color(self.OBS['colorLine']))
+        try:
+            LObsM.SetLineColor(color(self.OBS['colorLine']))
+        except TypeError:
+            LObsP.SetLineColor(rt.kBlack)
         LObsM.SetLineStyle(1)
         LObsM.SetLineWidth(2)
         LObsM.SetMarkerStyle(20)
@@ -242,8 +250,8 @@ class smsPlotABS(object):
         LObsM.Draw("LSAME")
         LObsP.Draw("LSAME")
         LExp.Draw("LSAME")
-        #LExpM2.Draw("LSAME")
-        #LExpP2.Draw("LSAME")
+        LExpM2.Draw("LSAME")
+        LExpP2.Draw("LSAME")
         LExpM.Draw("LSAME")
         LExpP.Draw("LSAME")
         
@@ -283,17 +291,20 @@ class smsPlotABS(object):
         
     def DrawLines(self):
         # observed
-        self.OBS['nominal'].SetLineColor(color(self.OBS['colorLine']))
-        self.OBS['nominal'].SetLineStyle(1)
-        self.OBS['nominal'].SetLineWidth(4)
-        # observed + 1sigma
-        self.OBS['plus'].SetLineColor(color(self.OBS['colorLine']))
-        self.OBS['plus'].SetLineStyle(1)
-        self.OBS['plus'].SetLineWidth(2)        
-        # observed - 1sigma
-        self.OBS['minus'].SetLineColor(color(self.OBS['colorLine']))
-        self.OBS['minus'].SetLineStyle(1)
-        self.OBS['minus'].SetLineWidth(2)        
+        try:
+            self.OBS['nominal'].SetLineColor(color(self.OBS['colorLine']))
+            self.OBS['nominal'].SetLineStyle(1)
+            self.OBS['nominal'].SetLineWidth(4)
+            # observed + 1sigma
+            self.OBS['plus'].SetLineColor(color(self.OBS['colorLine']))
+            self.OBS['plus'].SetLineStyle(1)
+            self.OBS['plus'].SetLineWidth(2)        
+            # observed - 1sigma
+            self.OBS['minus'].SetLineColor(color(self.OBS['colorLine']))
+            self.OBS['minus'].SetLineStyle(1)
+            self.OBS['minus'].SetLineWidth(2)        
+        except TypeError: # if no observed limit
+            pass
         # expected + 2sigma
         self.EXP2['plus2'].SetLineColor(color(self.EXP2['colorLine']))
         self.EXP2['plus2'].SetLineStyle(7)
@@ -320,8 +331,11 @@ class smsPlotABS(object):
         #self.EXP2['minus2'].Draw("LSAME")
         self.EXP['plus'].Draw("LSAME")
         self.EXP['minus'].Draw("LSAME")
-        self.OBS['nominal'].Draw("LSAME")
-        self.OBS['plus'].Draw("LSAME")
-        self.OBS['minus'].Draw("LSAME")        
+        try:
+            self.OBS['nominal'].Draw("LSAME")
+            self.OBS['plus'].Draw("LSAME")
+            self.OBS['minus'].Draw("LSAME")        
+        except TypeError: # if no observed limit
+            pass
 
         
