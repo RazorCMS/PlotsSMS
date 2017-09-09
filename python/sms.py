@@ -20,6 +20,7 @@ class sms():
         if modelname.find("T1bri") != -1: self.T1bri()
         if modelname.find("T1qqqq") != -1: self.T1qqqq()
         if modelname.find("T2bb") != -1: self.T2bb()
+        if modelname.find("T2qq") != -1: self.T2qq()
         if modelname.find("T6bbHH") != -1: self.T6bbHH()            
         if modelname.find("T2ttGluino") != -1: self.T2ttGluino()
         elif modelname.find("T2tt") != -1: self.T2tt()
@@ -62,9 +63,9 @@ class sms():
         self.masslabel = ""
         # scan range to plot
         self.Xmin = 600
-        self.Xmax = 1950
+        self.Xmax = 2100
         self.Ymin = 0
-        self.Ymax = 1800
+        self.Ymax = 2000
         self.Zmax = 2
         self.Zmin = 1.e-3
         # produce sparticle
@@ -349,11 +350,11 @@ class sms():
         self.masslabel = ""
         # plot boundary. The top 1/4 of the y axis is taken by the legend
         self.Xmin = 600
-        self.Xmax = 1950
+        self.Xmax = 2300
         self.Ymin = 0
-        self.Ymax = 1800
+        self.Ymax = 2200
         self.Zmax = 2
-        self.Zmin = 1.e-3
+        self.Zmin = 1.e-4
         # produce sparticle
         self.sParticle = "m_{#tilde{g}} [GeV]"
         # LSP
@@ -392,6 +393,32 @@ class sms():
         self.optX = True
         self.optY = True
 
+    def T2qq(self):
+        # model name
+        self.modelname = "T2qq"
+        # decay chain
+        self.label= "pp #rightarrow #tilde{q}#tilde{q}, #tilde{q} #rightarrow q#tilde{#chi}^{0}_{1}"
+        self.masslabel = ""
+        # plot boundary. The top 1/4 of the y axis is taken by the legend
+        self.Xmin = 150
+        self.Xmax = 1100
+        self.Ymin = 0
+        self.Ymax = 800
+        self.Zmax = 10
+        self.Zmin = 1.e-3
+        # produce sparticle
+        self.sParticle = "m_{#tilde{q}} [GeV]"
+        # LSP
+        self.LSP = "m_{#tilde{#chi}^{0}_{1}} [GeV]"
+        # diagonal position: mLSP = mgluino - 2mtop
+        self.diagX = array('d',[0,20000,self.Xmin])
+        self.diagY = array('d',[-25,20000-25,self.Xmax])
+        #self.divX = 407
+        self.divX = 409
+        self.divY = 408
+        self.optX = True
+        self.optY = True
+
         
     def T2bb(self):
         # model name
@@ -401,9 +428,9 @@ class sms():
         self.masslabel = ""
         # plot boundary. The top 1/4 of the y axis is taken by the legend
         self.Xmin = 150
-        self.Xmax = 900
+        self.Xmax = 1400
         self.Ymin = 0
-        self.Ymax = 600
+        self.Ymax = 900
         self.Zmax = 10
         self.Zmin = 1.e-3
         # produce sparticle
@@ -428,9 +455,9 @@ class sms():
         self.masslabel = ""
         # plot boundary. The top 1/4 of the y axis is taken by the legend
         self.Xmin = 100
-        self.Xmax = 900
+        self.Xmax = 1100
         self.Ymin = 0
-        self.Ymax = 500
+        self.Ymax = 800
         self.Zmax = 200
         self.Zmin = 1.e-3
         # produce sparticle
