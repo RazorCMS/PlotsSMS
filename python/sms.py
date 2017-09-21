@@ -4,6 +4,7 @@ class sms():
 
     def __init__(self, modelname):
         if modelname.find("T1tttt") != -1: self.T1tttt()
+        if modelname.find("T5ttcc") != -1: self.T5ttcc()
         if modelname.find("T5ttttDM175") != -1: self.T5ttttDM175()
         if modelname.find("T1tbbb") != -1: self.T1tbbb()
         if modelname.find("T1ttbb") != -1: self.T1ttbb()
@@ -67,7 +68,7 @@ class sms():
         self.Ymin = 0
         self.Ymax = 2000
         self.Zmax = 2
-        self.Zmin = 1.e-3
+        self.Zmin = 5.e-4
         # produce sparticle
         self.sParticle = "m_{#tilde{g}} [GeV]"
         # LSP
@@ -76,6 +77,31 @@ class sms():
         mW = 225
         self.diagX = array('d',[0,20000,self.Xmin])
         self.diagY = array('d',[-mW, 20000-mW,self.Xmax])  
+        self.divX = 408
+        self.divY = 408
+        self.optX = True
+        self.optY = True
+
+    def T5ttcc(self):
+        # model name
+        self.modelname = "T5ttcc"
+        # decay chain
+        self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow t#bar{c}#tilde{#chi}^{0}_{1}"
+        self.masslabel = ""
+        # scan range to plot
+        self.Xmin = 600
+        self.Xmax = 2300
+        self.Ymin = 0
+        self.Ymax = 2000
+        self.Zmax = 2
+        self.Zmin = 1.e-4
+        # produce sparticle
+        self.sParticle = "m_{#tilde{g}} [GeV]"
+        # LSP
+        self.LSP = "m_{#tilde{#chi}^{0}_{1}} [GeV]"
+        # diagonal position: mLSP = mgluino - 2mtop 
+        self.diagX = array('d',[0,20000,self.Xmin])
+        self.diagY = array('d',[-25, 20000-25,self.Xmax])  
         self.divX = 408
         self.divY = 408
         self.optX = True
