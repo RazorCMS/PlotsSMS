@@ -18,7 +18,7 @@ if __name__ == '__main__':
     fileIN.HISTOGRAM['histogram'].Print('v')
     
     # classic temperature histogram
-    xsecPlot = smsPlotXSEC(modelname, fileIN.HISTOGRAM, fileIN.OBSERVED, fileIN.EXPECTED, fileIN.EXPECTED2, fileIN.ENERGY, fileIN.LUMI, fileIN.PRELIMINARY, fileIN.BOXES, "")
+    xsecPlot = smsPlotXSEC(modelname, fileIN.HISTOGRAM, fileIN.OBSERVED, fileIN.EXPECTED, fileIN.EXPECTED2, fileIN.ENERGY, fileIN.LUMI, fileIN.PRELIMINARY, fileIN.BOXES, "", obsExtraLimits=fileIN.OBSERVEDEXTRA, expExtraLimits=fileIN.EXPECTEDEXTRA)
     xsecPlot.Draw()
     xsecPlot.Save("%sXSEC" %outputname)
 

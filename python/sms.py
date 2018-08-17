@@ -5,6 +5,7 @@ class sms():
     def __init__(self, modelname):
         if modelname.find("T1tttt") != -1: self.T1tttt()
         if modelname.find("T5ttcc") != -1: self.T5ttcc()
+        if modelname.find("T5qqqqVV") != -1: self.T5qqqqVV()
         if modelname.find("T5ttttDM175") != -1: self.T5ttttDM175()
         if modelname.find("T1tbbb") != -1: self.T1tbbb()
         if modelname.find("T1ttbb") != -1: self.T1ttbb()
@@ -64,7 +65,7 @@ class sms():
         self.masslabel = ""
         # scan range to plot
         self.Xmin = 600
-        self.Xmax = 2100
+        self.Xmax = 2300
         self.Ymin = 0
         self.Ymax = 2000
         self.Zmax = 2
@@ -86,7 +87,32 @@ class sms():
         # model name
         self.modelname = "T5ttcc"
         # decay chain
-        self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow t#bar{c}#tilde{#chi}^{0}_{1}"
+        self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow t#bar{c}#tilde{#chi}^{0}_{1}/#bar{t}c#tilde{#chi}^{0}_{1}"
+        self.masslabel = ""
+        # scan range to plot
+        self.Xmin = 600
+        self.Xmax = 2300
+        self.Ymin = 0
+        self.Ymax = 2000
+        self.Zmax = 2
+        self.Zmin = 1.e-4
+        # produce sparticle
+        self.sParticle = "m_{#tilde{g}} [GeV]"
+        # LSP
+        self.LSP = "m_{#tilde{#chi}^{0}_{1}} [GeV]"
+        # diagonal position: mLSP = mgluino - 2mtop 
+        self.diagX = array('d',[0,20000,self.Xmin])
+        self.diagY = array('d',[-110, 20000-110,self.Xmax])  
+        self.divX = 408
+        self.divY = 408
+        self.optX = True
+        self.optY = True
+
+    def T5qqqqVV(self):
+        # model name
+        self.modelname = "T5qqqqVV"
+        # decay chain
+        self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow q#bar{q}V#tilde{#chi}^{0}_{1}"
         self.masslabel = ""
         # scan range to plot
         self.Xmin = 600
@@ -426,10 +452,10 @@ class sms():
         self.label= "pp #rightarrow #tilde{q}#tilde{q}, #tilde{q} #rightarrow q#tilde{#chi}^{0}_{1}"
         self.masslabel = ""
         # plot boundary. The top 1/4 of the y axis is taken by the legend
-        self.Xmin = 150
-        self.Xmax = 1100
+        self.Xmin = 300
+        self.Xmax = 1700
         self.Ymin = 0
-        self.Ymax = 800
+        self.Ymax = 1300
         self.Zmax = 10
         self.Zmin = 1.e-3
         # produce sparticle
@@ -481,7 +507,7 @@ class sms():
         self.masslabel = ""
         # plot boundary. The top 1/4 of the y axis is taken by the legend
         self.Xmin = 100
-        self.Xmax = 1100
+        self.Xmax = 1200
         self.Ymin = 0
         self.Ymax = 800
         self.Zmax = 200
@@ -494,11 +520,13 @@ class sms():
         self.diagX = array('d',[0,20000,self.Xmin])
         self.diagY = array('d',[-75, 20000-75,self.Xmax])
         
-        self.diagXtop = array('d',[0,20000,self.Xmin])
-        self.diagYtop = array('d',[-175, 20000-175,self.Xmax])
+        self.diagXtop = array('d',[0,175,275])
+        self.diagYtop = array('d',[-175,0,100])
         
-        self.fillXtop = array('d',[0,20000,20000,0])
-        self.fillYtop = array('d',[-175-25, 20000-175-25,20000-175+25,-175+25])
+        self.fillXtop = array('d',[262.5, 287.5, 200, 150])
+        self.fillYtop = array('d',[112.5, 87.5, 0., 0.])
+        #self.fillXtop = array('d',[0+25,275+25,275-25,0-25])
+        #self.fillYtop = array('d',[-175-25,100-25,100+25,-175+25])
         
         #self.divX = 407
         self.divX = 409
@@ -626,11 +654,11 @@ class sms():
         self.label= "pp #rightarrow #tilde{g}#tilde{g}, #tilde{g} #rightarrow tb#tilde{#chi}^{#pm}_{1}"
         self.masslabel = "m_{#tilde{#chi}^{#pm}_{1}}-m_{#tilde{#chi}^{0}_{1}} = 5 GeV"
         # plot boundary. The top 1/4 of the y axis is taken by the legend
-        self.Xmin = 400
-        self.Xmax = 1500
+        self.Xmin = 600
+        self.Xmax = 2300
         self.Ymin = 0
-        self.Ymax = 1200
-        self.Zmax = 1
+        self.Ymax = 2000
+        self.Zmax = 2
         self.Zmin = 5.e-4
         # produce sparticle
         self.sParticle = "m_{#tilde{g}} [GeV]"

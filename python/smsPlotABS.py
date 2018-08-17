@@ -17,11 +17,13 @@ class smsPlotABS(object):
         self.c = rt.TCanvas("cABS_%s" %label,"cABS_%s" %label,300,300)
         self.histo = histo
 
-    def standardDef(self, modelname, histo, obsLimits, expLimits, expLimits2, energy, lumi, preliminary, boxes):
+    def standardDef(self, modelname, histo, obsLimits, expLimits, expLimits2, energy, lumi, preliminary, boxes, obsExtraLimits=None, expExtraLimits=None):
         # which SMS?
         self.model = sms(modelname)
         self.OBS = obsLimits
+        self.OBSEXTRA = obsExtraLimits
         self.EXP = expLimits
+        self.EXPEXTRA = expExtraLimits
         self.EXP2 = expLimits2
         self.lumi = lumi
         self.energy = energy
@@ -250,8 +252,8 @@ class smsPlotABS(object):
         LObsM.Draw("LSAME")
         LObsP.Draw("LSAME")
         LExp.Draw("LSAME")
-        LExpM2.Draw("LSAME")
-        LExpP2.Draw("LSAME")
+        #LExpM2.Draw("LSAME")
+        #LExpP2.Draw("LSAME")
         LExpM.Draw("LSAME")
         LExpP.Draw("LSAME")
         
@@ -291,51 +293,72 @@ class smsPlotABS(object):
         
     def DrawLines(self):
         # observed
-        try:
-            self.OBS['nominal'].SetLineColor(color(self.OBS['colorLine']))
-            self.OBS['nominal'].SetLineStyle(1)
-            self.OBS['nominal'].SetLineWidth(4)
-            # observed + 1sigma
-            self.OBS['plus'].SetLineColor(color(self.OBS['colorLine']))
-            self.OBS['plus'].SetLineStyle(1)
-            self.OBS['plus'].SetLineWidth(2)        
-            # observed - 1sigma
-            self.OBS['minus'].SetLineColor(color(self.OBS['colorLine']))
-            self.OBS['minus'].SetLineStyle(1)
-            self.OBS['minus'].SetLineWidth(2)        
-        except TypeError: # if no observed limit
-            pass
+        for line in [self.OBS, self.OBSEXTRA]:
+            try:
+                line['nominal'].SetLineColor(color(line['colorLine']))
+                line['nominal'].SetLineStyle(1)
+                line['nominal'].SetLineWidth(4)
+                # observed + 1sigma
+                line['plus'].SetLineColor(color(line['colorLine']))
+                line['plus'].SetLineStyle(1)
+                line['plus'].SetLineWidth(2)        
+                # observed - 1sigma
+                line['minus'].SetLineColor(color(line['colorLine']))
+                line['minus'].SetLineStyle(1)
+                line['minus'].SetLineWidth(2)        
+            except TypeError: # if no observed limit
+                pass
         # expected + 2sigma
         self.EXP2['plus2'].SetLineColor(color(self.EXP2['colorLine']))
         self.EXP2['plus2'].SetLineStyle(7)
         self.EXP2['plus2'].SetLineWidth(2)                
-        # expected + 1sigma
-        self.EXP['plus'].SetLineColor(color(self.EXP['colorLine']))
-        self.EXP['plus'].SetLineStyle(7)
-        self.EXP['plus'].SetLineWidth(2)                
         # expected
-        self.EXP['nominal'].SetLineColor(color(self.EXP['colorLine']))
-        self.EXP['nominal'].SetLineStyle(7)
-        self.EXP['nominal'].SetLineWidth(4)        
-        # expected - 2sigma
-        self.EXP2['minus2'].SetLineColor(color(self.EXP2['colorLine']))
-        self.EXP2['minus2'].SetLineStyle(7)
-        self.EXP2['minus2'].SetLineWidth(2)          
-        # expected - 1sigma
-        self.EXP['minus'].SetLineColor(color(self.EXP['colorLine']))
-        self.EXP['minus'].SetLineStyle(7)
-        self.EXP['minus'].SetLineWidth(2)                      
-        # DRAW LINES
-        self.EXP['nominal'].Draw("LSAME")
-        #self.EXP2['plus2'].Draw("LSAME")
-        #self.EXP2['minus2'].Draw("LSAME")
-        self.EXP['plus'].Draw("LSAME")
-        self.EXP['minus'].Draw("LSAME")
-        try:
-            self.OBS['nominal'].Draw("LSAME")
-            self.OBS['plus'].Draw("LSAME")
-            self.OBS['minus'].Draw("LSAME")        
-        except TypeError: # if no observed limit
-            pass
+        for line in [self.EXP, self.EXPEXTRA]:
+            try:
+                line['nominal'].SetLineColor(color(line['colorLine']))
+                line['nominal'].SetLineStyle(7)
+                line['nominal'].SetLineWidth(4)        
+                # expected - 2sigma
+                #self.EXP2['minus2'].SetLineColor(color(self.EXP2['colorLine']))
+                #self.EXP2['minus2'].SetLineStyle(7)
+                #self.EXP2['minus2'].SetLineWidth(2)          
+                # expected +- 1sigma
+                line['plus'].SetLineColor(color(line['colorLine']))
+                line['plus'].SetLineStyle(7)
+                line['plus'].SetLineWidth(2)                
+                line['minus'].SetLineColor(color(line['colorLine']))
+                line['minus'].SetLineStyle(7)
+                line['minus'].SetLineWidth(2)                      
+                # DRAW LINES
+                line['nominal'].Draw("LSAME")
+                #self.EXP2['plus2'].Draw("LSAME")
+                #self.EXP2['minus2'].Draw("LSAME")
+                line['plus'].Draw("LSAME")
+                line['minus'].Draw("LSAME")
+            except TypeError: 
+                pass
+        for line in [self.OBS, self.OBSEXTRA]:
+            try:
+                line['nominal'].Draw("LSAME")
+                line['plus'].Draw("LSAME")
+                line['minus'].Draw("LSAME")        
+            except TypeError: # if no observed limit
+                pass
+        # T2qq custom labels
+        if self.model.modelname == 'T2qq':
+            textT2qq1 = rt.TLatex(0.3, 0.35, "one light #tilde{q}")
+            textT2qq1.SetNDC()
+            textT2qq1.SetTextAlign(13)
+            textT2qq1.SetTextFont(42)
+            textT2qq1.SetTextSize(0.03)
+            textT2qq1.Draw()
+            textT2qq2 = rt.TLatex(0.5, 0.6, "#tilde{q}_{L} + #tilde{q}_{R} (#tilde{u}, #tilde{d}, #tilde{s}, #tilde{c})")
+            textT2qq2.SetNDC()
+            textT2qq2.SetTextAlign(13)
+            textT2qq2.SetTextFont(42)
+            textT2qq2.SetTextSize(0.03)
+            textT2qq2.Draw()
+            self.c.textT2qq1 = textT2qq1
+            self.c.textT2qq2 = textT2qq2
 
         
