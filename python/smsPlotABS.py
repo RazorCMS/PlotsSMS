@@ -52,7 +52,8 @@ class smsPlotABS(object):
 
         # set x axis
         self.emptyHisto.GetXaxis().SetLabelFont(42)
-        self.emptyHisto.GetXaxis().SetLabelSize(0.04)
+        self.emptyHisto.GetXaxis().SetLabelSize(0.033)
+        self.emptyHisto.GetXaxis().SetLabelOffset(0.02)
         self.emptyHisto.GetXaxis().SetNdivisions(self.model.divX,self.model.optX)
         self.emptyHisto.GetXaxis().SetTitleFont(42)
         self.emptyHisto.GetXaxis().SetTitleSize(0.05)
@@ -84,8 +85,8 @@ class smsPlotABS(object):
         graphWhite.SetLineWidth(3)
         graphWhite.SetPoint(0,self.model.Xmin, self.model.Ymax)
         graphWhite.SetPoint(1,self.model.Xmax, self.model.Ymax)
-        graphWhite.SetPoint(2,self.model.Xmax, self.model.Ymax*0.7)
-        graphWhite.SetPoint(3,self.model.Xmin, self.model.Ymax*0.7)
+        graphWhite.SetPoint(2,self.model.Xmax, self.model.Ymax*0.69)
+        graphWhite.SetPoint(3,self.model.Xmin, self.model.Ymax*0.69)
         graphWhite.SetPoint(4,self.model.Xmin, self.model.Ymax)
         graphWhite.Draw("FSAME")
         graphWhite.Draw("LSAME")
@@ -118,7 +119,7 @@ class smsPlotABS(object):
         self.c.textModelLabel = textModelLabel
         
         #textModelLabel2 = rt.TLatex(0.56,0.88,"NLO+NLL exclusion")
-        textModelLabel2 = rt.TLatex(0.52,0.725,"NLO+NLL exclusion")
+        textModelLabel2 = rt.TLatex(0.52,0.89,"NLO+NLL exclusion")
         textModelLabel2.SetNDC()
         textModelLabel2.SetTextAlign(13)
         textModelLabel2.SetTextFont(42)
@@ -248,6 +249,22 @@ class smsPlotABS(object):
         textExp.Draw()
         self.c.textExp = textExp
 
+        LExtraExp = rt.TGraph(2)
+        LExtraExp.SetName("ExtraExp")
+        LExtraExp.SetTitle("ExtraExp")
+        LExtraExp.SetLineColor(color(self.EXPEXTRA['colorLine']))
+        LExtraExp.SetLineStyle(9)
+        LExtraExp.SetLineWidth(4)
+        LExtraExp.SetPoint(0,self.model.Xmin+3*xRange/100, self.model.Ymax-2.65*yRange/100*10)
+        LExtraExp.SetPoint(1,self.model.Xmin+10*xRange/100, self.model.Ymax-2.65*yRange/100*10)
+        
+        textExtraExp = rt.TLatex(self.model.Xmin+11*xRange/100, self.model.Ymax-2.80*yRange/100*10, "Expected (Nonboosted Only)")
+        textExtraExp.SetTextFont(42)
+        textExtraExp.SetTextSize(0.040)
+        textExtraExp.Draw()
+        self.c.textExtraExp = textExtraExp
+
+
         LObs.Draw("LSAME")
         LObsM.Draw("LSAME")
         LObsP.Draw("LSAME")
@@ -256,6 +273,7 @@ class smsPlotABS(object):
         #LExpP2.Draw("LSAME")
         LExpM.Draw("LSAME")
         LExpP.Draw("LSAME")
+        LExtraExp.Draw("LSAME")
         
         self.c.LObs = LObs
         self.c.LObsM = LObsM
@@ -265,6 +283,7 @@ class smsPlotABS(object):
         self.c.LExpP = LExpP
         self.c.LExpM2 = LExpM2
         self.c.LExpP2 = LExpP2
+        self.c.LExtraExp = LExtraExp
 
     def DrawDiagonal(self):
         diagonal = rt.TGraph(3, self.model.diagX, self.model.diagY)
@@ -313,7 +332,7 @@ class smsPlotABS(object):
         self.EXP2['plus2'].SetLineStyle(7)
         self.EXP2['plus2'].SetLineWidth(2)                
         # expected
-        for line in [self.EXP, self.EXPEXTRA]:
+        for line in [self.EXP]:
             try:
                 line['nominal'].SetLineColor(color(line['colorLine']))
                 line['nominal'].SetLineStyle(7)
@@ -337,6 +356,32 @@ class smsPlotABS(object):
                 line['minus'].Draw("LSAME")
             except TypeError: 
                 pass
+ 
+        for line in [self.EXPEXTRA]:
+            try:
+                line['nominal'].SetLineColor(color(line['colorLine']))
+                line['nominal'].SetLineStyle(9)
+                line['nominal'].SetLineWidth(4)        
+                # expected - 2sigma
+                #self.EXP2['minus2'].SetLineColor(color(self.EXP2['colorLine']))
+                #self.EXP2['minus2'].SetLineStyle(7)
+                #self.EXP2['minus2'].SetLineWidth(2)          
+                # expected +- 1sigma
+                line['plus'].SetLineColor(color(line['colorLine']))
+                line['plus'].SetLineStyle(9)
+                line['plus'].SetLineWidth(2)                
+                line['minus'].SetLineColor(color(line['colorLine']))
+                line['minus'].SetLineStyle(9)
+                line['minus'].SetLineWidth(2)                      
+                # DRAW LINES
+                line['nominal'].Draw("LSAME")
+                #self.EXP2['plus2'].Draw("LSAME")
+                #self.EXP2['minus2'].Draw("LSAME")
+                line['plus'].Draw("LSAME")
+                line['minus'].Draw("LSAME")
+            except TypeError: 
+                pass
+
         for line in [self.OBS, self.OBSEXTRA]:
             try:
                 line['nominal'].Draw("LSAME")

@@ -1,6 +1,7 @@
 import sys
 from inputFile import *
 from smsPlotXSEC import *
+from smsPlotXSEC_SUS16017 import *
 from smsPlotCONT import *
 from smsPlotBrazil import *
 
@@ -18,7 +19,8 @@ if __name__ == '__main__':
     fileIN.HISTOGRAM['histogram'].Print('v')
     
     # classic temperature histogram
-    xsecPlot = smsPlotXSEC(modelname, fileIN.HISTOGRAM, fileIN.OBSERVED, fileIN.EXPECTED, fileIN.EXPECTED2, fileIN.ENERGY, fileIN.LUMI, fileIN.PRELIMINARY, fileIN.BOXES, "", obsExtraLimits=fileIN.OBSERVEDEXTRA, expExtraLimits=fileIN.EXPECTEDEXTRA)
+    xsecPlot = smsPlotXSEC_SUS16017(modelname, fileIN.HISTOGRAM, fileIN.OBSERVED, fileIN.EXPECTED, fileIN.EXPECTED2, fileIN.ENERGY, fileIN.LUMI, fileIN.PRELIMINARY, fileIN.BOXES, "", obsExtraLimits=fileIN.OBSERVEDEXTRA, expExtraLimits=fileIN.EXPECTEDEXTRA)
+    #xsecPlot = smsPlotXSEC(modelname, fileIN.HISTOGRAM, fileIN.OBSERVED, fileIN.EXPECTED, fileIN.EXPECTED2, fileIN.ENERGY, fileIN.LUMI, fileIN.PRELIMINARY, fileIN.BOXES, "", obsExtraLimits=fileIN.OBSERVEDEXTRA, expExtraLimits=fileIN.EXPECTEDEXTRA)  
     xsecPlot.Draw()
     xsecPlot.Save("%sXSEC" %outputname)
 
@@ -26,6 +28,7 @@ if __name__ == '__main__':
     #contPlot = smsPlotCONT(modelname, fileIN.HISTOGRAM, fileIN.OBSERVED, fileIN.EXPECTED, fileIN.EXPECTED2, fileIN.ENERGY, fileIN.LUMI, fileIN.PRELIMINARY, fileIN.BOXES, "")
     #contPlot.Draw()
     #contPlot.Save("%sCONT" %outputname)
+
 
     # brazilian flag (show only 1 sigma)
     #brazilPlot = smsPlotBrazil(modelname, fileIN.HISTOGRAM, fileIN.OBSERVED, fileIN.EXPECTED, fileIN.EXPECTED2, fileIN.ENERGY, fileIN.LUMI, fileIN.PRELIMINARY, fileIN.BOXES, "")
